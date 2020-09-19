@@ -44,7 +44,7 @@ if verbose:
     print(ae.summary())
 
 lr = 0.00005 * 10. 
-n_epochs = 2 #750
+n_epochs = 750
 batch_size = 16
 noise_level = 0.02
 
@@ -72,15 +72,13 @@ encoder = keras.Model(inputs=model.input, outputs=model.get_layer('encoded').out
 if verbose:
     print(encoder.summary())
 
-# Compute Center Feature
-batch_size = 16
+# Compute central feature c 
 initial_outputs = encoder.predict(train_x)
 center_feat = np.mean(initial_outputs, axis=0)
 target_feat = np.expand_dims(center_feat, 0) 
 target_feat_train = np.repeat(target_feat, len(train_x), axis=0)
 target_feat_val = np.repeat(target_feat, len(test_stable_x), axis=0)
 
-n_epochs = 2 #420 #160 * 2
 saved_path = './{}/DSVDD.h5'.format(model_dir)
 cp_callback = keras.callbacks.ModelCheckpoint(filepath=saved_path, save_weights_only=False, verbose=1, 
                                               monitor='val_loss', mode='min', save_best_only=True)
@@ -88,6 +86,8 @@ log_dir = "./{}/DSVDD".format(tb_dir)
 tensorboard_callback = keras.callbacks.TensorBoard(log_dir=log_dir, write_graph=False,
                        profile_batch=0)
 
+n_epochs = 160
+batch_size = 16
 lr = 0.00005 
 encoder.compile(loss=[euclidean_distance_square_loss], optimizer=keras.optimizers.Adam(learning_rate=lr))
 
@@ -120,7 +120,7 @@ target_feat = np.expand_dims(center_feat, 0)
 target_feat_train = np.repeat(target_feat, len(train_x), axis=0)
 print(target_feat_train.shape)
 
-n_epochs = 2 #20000
+n_epochs = 20000
 batch_size = 16 #16
 noise_level = 0
 v_mean, v_std = 0, 1 
@@ -212,7 +212,7 @@ cls.compile(loss=['binary_crossentropy'], metrics=[smooth_accuracy], optimizer=k
 if verbose:
     print(cls.summary())
 
-n_epochs = 2 #40 
+n_epochs = 40 
 batch_size = 32
 saved_path = './{}/CLASSIFIER.h5'.format(model_dir)
 
