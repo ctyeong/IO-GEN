@@ -80,7 +80,7 @@ For custom data, if the data hierarchy and a similar split format are given, the
 
 # Training 
 
-*train.py* is the python script to train *DCAE, DSVDD,* and *IO-GEN (followed by Classifier)* in order. Each model is evaluated per epoch, and it is saved into a specified directory as the best performance has been achieved during epochs. (The numbers of epochs are set to 750, 160, 20K, and 40, respectively as done in the paper above.)
+*train.py* is the core python script to train *DCAE, DSVDD, IO-GEN,* and *Classifier* in order. Each model is evaluated per epoch, and it is saved into a specified directory whenever the best performance has been achieved during epochs. Note that the numbers of epochs are set to 750, 160, 20K, and 40, respectively to follow the original protocol of the paper.
 
 ### With a particular data split 
 Here is an example for training with *split1* in the current directory.
@@ -97,14 +97,14 @@ python train.py -s ./split1 -m 1
 ```
 
 ### Saving best models and training logs
-The directories to store best trained models and [Tensorboard](https://www.tensorflow.org/tensorboard) logs can also be specified:
+The directories to store best trained models and [Tensorboard](https://www.tensorflow.org/tensorboard) logs can also be specified by *'-d'* and *'-t'*:
 ```
 python train.py -s ./split1 -d ./saved_models -t ./tb_logs
 ```
 
-Without specification, the default directories are automatically set to *./saved_models* and *./tb_logs*, respectively. The best models are saved with names like *DCAE.h5, DSVDD.h5, IO-GEN.h5,* and *Classifier.h5* under the corresponding directory.
+Without specification, the directories are automatically set to *'./saved_models'* and *'./tb_logs'*, respectively. The best models are saved with names like *'DCAE.h5', 'DSVDD.h5', 'IO-GEN.h5',* and *'Classifier.h5'* under the corresponding directory.
 
-Lastly, *'-v'* can be set either *1* or *0* to control the level of explanation during training (default=1). 
+<!-- Lastly, *'-v'* can be set either *1* or *0* to control the level of explanation during training (default=1).  -->
 
 ## Test
 
