@@ -136,7 +136,7 @@ All: .672
 Similar to the report protocol in the paper, the first six rows indicate AUC scores at unique time bins while the colony is stabilized. 
 In contrast, the last row is the performance measurement considering all samples from the entire observation period (D+1~D+18)
 
-# Export Fake Ant Motions
+# Exporting Fake Ant Motions
 
 
 
