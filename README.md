@@ -17,7 +17,7 @@ Instructions below start with a quick introduction to the pipeline of involved n
 # Contents 
 
 1. [Model Pipeline](https://github.com/ctyeong/IO-GEN#model-pipeline)
-2. [SW/HW/Data Requirements](https://github.com/ctyeong/IO-GEN#swhwdata-requirements)
+2. [Installation](https://github.com/ctyeong/IO-GEN#installation)
 
 # Model Pipeline
 To better understand the code, we first review the pipeline of network model and data flows during training and test. 
@@ -50,20 +50,23 @@ Moreover, users are encouraged to utilize optical flow data of ants at the follo
 # Installation 
 
 1. Clone the repository 
-   
-   `git clone https://github.com/ctyeong/IO-GEN.git`
+   ```
+   git clone https://github.com/ctyeong/IO-GEN.git
+   ```
 
 2. Install the required Python packages
-
-    `pip install -r requirements.txt`
-
+    ```
+    pip install -r requirements.txt
+    ```
     - Python 3.6 is assumed to be installed already
 
 3. Download ant motional data
-   
-   `cd IO-GEN`
-   `git clone https://github.com/ctyeong/OpticalFlows_HsAnts.git`
-   `cp `
+   ```
+   cd IO-GEN
+   git clone https://github.com/ctyeong/OpticalFlows_HsAnts.git
+   mv split1 split2 split3 Stable Unstable ../ && cd ..
+   rm -rf OpticalFlows_HsAnts
+   ```
    
 
 
