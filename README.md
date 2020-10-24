@@ -1,13 +1,37 @@
-# IO-GEN
+# Inner Outlier Generator 
+
+*Inner Outlier Generator (IO-GEN)* is designed to tackle 
+One-class Classification (OC) problems by generating synthetic data 
+that has a particular geographic property on the feature space of 
+Deep Support Vector Data Description (DSVDD). 
+
+This repository provides a quick introduction to the IO-GEN model as 
+well as the official Tensorflow implementations of the paper: 
+"Identification of Abnormal States in Videos of Ants Undergoing Social Phase Change", 
+*under review for [IAAI-21](https://aaai.org/Conferences/AAAI-21/iaai-21-call/)*,
+the pre-print version available at *[arXiv](https://arxiv.org/abs/2009.08626)*.
+
+# Macrostate Classification in Ant Colony
+
+![](Imgs/Fig1_concept.jpg)
+
+
+# Building on DSVDD
+
+![](Imgs/feature_space.jpg | width=400)
 
 # Introduction
 
 Codes used for 
 "Identification of Abnormal States in Videos of Ants Undergoing Social Phase Change",
-Taeyeong Choi, Benjamin Pyenson, Juergen Liebig, Theodore P. Pavlic, 
-*Submitted to [IAAI-21](https://aaai.org/Conferences/AAAI-21/iaai-21-call/)*. 
+Taeyeong Choi, Benjamin Pyenson, Juergen Liebig, and Theodore P. Pavlic, 
+*Under review for [IAAI-21](https://aaai.org/Conferences/AAAI-21/iaai-21-call/)*
+.
 
-The following models from the paper can be built, trained, and tested for One-class Classification problems: 
+This repository contains the codes to build, train, and test the following models utilized in our paper
+to reproduce similar results.
+
+ can be built, trained, and tested for One-class Classification problems: 
 - Deep Convolutional Autoencoder (DCAE)
 - Deep Support Vector Data Description (DSVDD)
 - IO-GEN (with Classifier) 
