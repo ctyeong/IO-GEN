@@ -7,7 +7,7 @@ Deep Support Vector Data Description (DSVDD).
 This repository provides a quick introduction to the IO-GEN model as 
 well as to the official Tensorflow implementations of the paper: 
 
-## "Identification of Abnormal States in Videos of Ants Undergoing Social Phase Change", under review for [IAAI-21](https://aaai.org/Conferences/AAAI-21/iaai-21-call/).
+**"Identification of Abnormal States in Videos of Ants Undergoing Social Phase Change", under review for [IAAI-21](https://aaai.org/Conferences/AAAI-21/iaai-21-call/).**
 
 Pre-print version at arXiv : https://arxiv.org/abs/2009.08626
 
