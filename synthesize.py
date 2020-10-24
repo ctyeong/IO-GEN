@@ -18,6 +18,7 @@ parser.add_argument('-p', '--model_path', help='Path to IO-GEN model')
 parser.add_argument('-f', '--fake_dir', default='./fake_imgs', help='Directory to save synthesized images')
 parser.add_argument('-b', '--n_fakes', default=10, type=int, help='Number of fake optical flow pairs')
 parser.add_argument('-c', '--color_map', default='Spectral', help='Colormap of matplotlib')
+parser.add_argument('-i', '--inverse_value', default=0, type=int, help='Inverse value for better visualization with some colomaps')
 
 options = parser.parse_args()
 
@@ -27,6 +28,7 @@ model_path = options.model_path
 fake_dir = options.fake_dir
 n_fakes = options.n_fakes
 cmap = options.color_map
+inverse_value = options.inverse_value
 
 # necessary arguments 
 assert split_dir != None, 'Please specify the directory of split to use. Use "-s" argument in execution' 
@@ -57,13 +59,24 @@ for i in range(n_fakes):
     flows = gen.predict(z)[0, ..., :2] 
 
     ax = plt.subplot(1, 2, 1)
-    ax.imshow(-abs(flows[..., 0]), cmap=cmap)
+
+    if inverse_value:
+        ax.imshow(-abs(flows[..., 0]), cmap=cmap)
+
+    else:
+        ax.imshow(abs(flows[..., 0]), cmap=cmap)
+
     ax.set_title('X')
     ax.set_xticks([], [])
     ax.set_yticks([], [])
 
     ax = plt.subplot(1, 2, 2)
-    ax.imshow(-abs(flows[..., 1]), cmap=cmap)
+    if inverse_value:
+        ax.imshow(-abs(flows[..., 1]), cmap=cmap)
+
+    else:
+        ax.imshow(abs(flows[..., 1]), cmap=cmap)
+
     ax.set_title('Y')
     ax.set_xticks([], [])
     ax.set_yticks([], [])
