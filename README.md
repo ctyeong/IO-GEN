@@ -18,6 +18,8 @@ Instructions below start with a quick introduction to the pipeline of involved n
 
 1. [Model Pipeline](https://github.com/ctyeong/IO-GEN#model-pipeline)
 2. [Installation](https://github.com/ctyeong/IO-GEN#installation)
+3. [Training](https://github.com/ctyeong/IO-GEN#training)
+3. [Test](https://github.com/ctyeong/IO-GEN#training)
 
 # Model Pipeline
 To better understand the code, we first review the pipeline of network model and data flows during training and test. 
@@ -106,31 +108,33 @@ Without specification, the directories are automatically set to *'./saved_models
 
 <!-- Lastly, *'-v'* can be set either *1* or *0* to control the level of explanation during training (default=1).  -->
 
-## Test
+# Test
 
-*test.py* can be used to test either *DCAE, DSVDD,* or *IO-GEN* saved during training. As in training, a specific split must be given by *'-s'* argument, and additionally, the model name is required with *'-n'*. For example: 
+*test.py* can be used to test either *'DCAE', 'DSVDD',* or *'IO-GEN'* saved during training. 
 
-`$ python test.py -s ./split1 -d ./saved_models -n IO-GEN -m 4 -v 0`
+### Testing a particular model 
+All arguments for training can be for test as well. In addition, the model to test must be given with *'-n'*. For example: 
+```
+$ python test.py -s ./split1 -d ./saved_models -n IO-GEN -m 4
+```
 
-This command will use *split1* to run the saved *IO-GEN* model located under *./saved_models* folder, which was trained with 4 optical flow pairs per input. Also, less explanations will be shown by *'-v=0'*.
+This command will use *split1* to run the saved *IO-GEN* model located under *./saved_models* folder, which was trained with 4 optical flow pairs per input.
 
-For each run, the Area Under the Curve (AUC) score of the Receiver Operating Characteristics (ROC) is given for two types of tests. For instance: 
+### AUC outputs
+Each test execution prints out Area Under the Curve (AUC) scores of the Receiver Operating Characteristics (ROC) by applying the model to different time windows. For instance: 
 
-`D+1: .700`
+```
+D+1: .700
+D+2: .725
+D+3 - D+6: .687
+D+7 - D+10: .655
+D+11 - D+14: .579
+D+15 - D+18: .551
+All: .672
+```
 
-`D+2: .725`
-
-`D+3 - D+6: .687`
-
-`D+7 - D+10: .655`
-
-`D+11 - D+14: .579`
-
-`D+15 - D+18: .551`
-
-`All: .672`
-
-The first six rows indicate AUC scores of the model at different time frames in the unstable state while the last row the performance when all data are considered. This is the evaluation protocol used for the paper above.
+Similar to the report protocol in the paper, the first six rows indicate AUC scores at unique time bins while the colony is stabilized. 
+In contrast, the last row is the performance measurement considering all samples from the entire observation period (D+1~D+18)
 
 # Contact
 
