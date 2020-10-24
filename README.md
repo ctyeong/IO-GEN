@@ -19,7 +19,7 @@ Instructions below start with a quick introduction to the pipeline of involved n
 1. [Model Pipeline](https://github.com/ctyeong/IO-GEN#model-pipeline)
 2. [Installation](https://github.com/ctyeong/IO-GEN#installation)
 3. [Training](https://github.com/ctyeong/IO-GEN#training)
-3. [Test](https://github.com/ctyeong/IO-GEN#training)
+3. [Test](https://github.com/ctyeong/IO-GEN#test)
 
 # Model Pipeline
 To better understand the code, we first review the pipeline of network model and data flows during training and test. 
@@ -30,10 +30,10 @@ To better understand the code, we first review the pipeline of network model and
 2. Encoder part of DCAE is fine-tuned as DSVDD.
 3. IO-GEN is trained in an adversarial manner involving the feature space of DSVDD, which is frozen this time. 
    
-   <img src=Imgs/pipeline1.jpg width="65%">
+   <img src=Imgs/pipeline1.jpg width="55%">
 4. Classifier is trained on top of frozen (IO-GEN, DSVDD).
 
-   <img src=Imgs/pipeline2.jpg width="65%">
+   <img src=Imgs/pipeline2.jpg width="55%">
 
 ## Structure for Test
 
@@ -85,7 +85,7 @@ For custom data, if the data hierarchy and a similar split format are given, the
 *train.py* is the core python script to train *DCAE, DSVDD, IO-GEN,* and *Classifier* in order. Each model is evaluated per epoch, and it is saved into a specified directory whenever the best performance has been achieved during epochs. Note that the numbers of epochs are set to 750, 160, 20K, and 40, respectively to follow the original protocol of the paper.
 
 ### With a particular data split 
-Here is an example for training with *split1* in the current directory.
+Here is an example for training with *'split1'* in the current directory.
 ```
 python train.py -s ./split1
 ```
@@ -110,18 +110,18 @@ Without specification, the directories are automatically set to *'./saved_models
 
 # Test
 
-*test.py* can be used to test either *'DCAE', 'DSVDD',* or *'IO-GEN'* saved during training. 
+*test.py* is the python script to test the trained models: *'DCAE', 'DSVDD',* and *'IO-GEN'*. 
 
 ### Testing a particular model 
-All arguments for training can be for test as well. In addition, the model to test must be given with *'-n'*. For example: 
+Any argument for training can be used for test as well. In addition, the model to test must be given with *'-n'* option. For example: 
 ```
 $ python test.py -s ./split1 -d ./saved_models -n IO-GEN -m 4
 ```
 
-This command will use *split1* to run the saved *IO-GEN* model located under *./saved_models* folder, which was trained with 4 optical flow pairs per input.
+This command will use *'split1'* to run the saved *'IO-GEN'* model located under *'./saved_models'* folder, which was trained with 4 optical flow pairs per input.
 
 ### AUC outputs
-Each test execution prints out Area Under the Curve (AUC) scores of the Receiver Operating Characteristics (ROC) by applying the model to different time windows. For instance: 
+Each test execution prints out Area Under the Curve (AUC) scores of the Receiver Operating Characteristics (ROC) by applying the model in different time windows. For instance: 
 
 ```
 D+1: .700
@@ -135,6 +135,10 @@ All: .672
 
 Similar to the report protocol in the paper, the first six rows indicate AUC scores at unique time bins while the colony is stabilized. 
 In contrast, the last row is the performance measurement considering all samples from the entire observation period (D+1~D+18)
+
+# Export Fake Ant Motions
+
+
 
 # Contact
 
