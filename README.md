@@ -24,9 +24,9 @@ To better understand the code, we first review the pipeline of network model for
 1. Deep Convolutional Autoencoder (DCAE) is trained. 
 2. Encoder of DCAE is fine-tuned as DSVDD.
 3. IO-GEN is trained in an adversarial manner also using the feature space of DSVDD, which is frozen this time. 
-   ![pipeline](Imgs/pipeline1.jpg)
+   <img src=Imgs/pipeline1.jpg width="70%">
 4. Classifier is trained on top of frozen (IO-GEN, DSVDD).
-   ![pipeline](Imgs/pipeline2.jpg)
+   <img src=Imgs/pipeline2.jpg width="70%">
 
 ## Structure for Test
 
