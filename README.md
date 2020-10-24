@@ -152,11 +152,11 @@ Once the above has been executed, *'./fake_imgs'* contains:
 Note that each image file visualizes the horizontal and the vertical optical flows side-by-side. 
 
 ### Examples with different colormaps
-Spectral       |  gist_heat
+Spectral             |  gist_heat
 :-------------------:|:--------------------:
 ![](Imgs/ex_sp1.jpg) | ![](Imgs/ex_gi2.jpg)
 
-coolwarm       |  jet
+coolwarm             |  jet
 :-------------------:|:--------------------:
 ![](Imgs/ex_cw3.jpg) | ![](Imgs/ex_je4.jpg)
 
