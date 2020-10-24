@@ -125,13 +125,13 @@ This command will use *'split1'* to run the saved *'IO-GEN'* model located under
 Each test execution prints out Area Under the Curve (AUC) scores of the Receiver Operating Characteristics (ROC) by applying the model in different time windows. For instance: 
 
 ```
-D+1: .700
-D+2: .725
-D+3 - D+6: .687
-D+7 - D+10: .655
-D+11 - D+14: .579
-D+15 - D+18: .551
-All: .672
+D+1: .933
+D+2: .943
+D+3 - D+6: .909
+D+7 - D+10: .792
+D+11 - D+14: .688
+D+15 - D+18: .678
+All: .786
 ```
 
 Similar to the report protocol in the paper, the first six rows indicate AUC scores at unique time bins while the colony is stabilized. 
