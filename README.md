@@ -20,6 +20,7 @@ Instructions below start with a quick introduction to the pipeline of involved n
 2. [Installation](https://github.com/ctyeong/IO-GEN#installation)
 3. [Training](https://github.com/ctyeong/IO-GEN#training)
 3. [Test](https://github.com/ctyeong/IO-GEN#test)
+4. [Exporting Fake Ant Motions](https://github.com/ctyeong/IO-GEN#exporting-fake-ant-motions)
 
 # Model Pipeline
 To better understand the code, we first review the pipeline of network model and data flows during training and test. 
@@ -138,7 +139,26 @@ In contrast, the last row is the performance measurement considering all samples
 
 # Exporting Fake Ant Motions
 
+*'synthesize.py'* is the python script to export synthetic optical flows of ants from *'IO-GEN'*. If you have saved the model at *'./save_models/IO-GEN.h5'* after training with 2 optical flows pairs per input from *'split1'*, the following command generates 5 fake optical flow pairs under *'./fake_imgs'*: 
+```
+python synthesize.py -s split1 -m 2 -p saved_models/IO-GEN.h5 -f ./fake_imgs -b 5 -c Spectral -i 1
+```
+*'-c'* option allows to specify a colormap ([among available choices](https://matplotlib.org/3.3.2/tutorials/colors/colormaps.html)), and *'-i'* can inverse the order of values in terms of magnitude by setting to 1 for better visualization with some colormaps.
 
+Once the above has been executed, *'./fake_imgs'* contains: 
+```
+0.jpg, 1.jpg, 2.jpg, 3.jpg, 4.jpg
+```
+Note that each image file visualizes the horizontal and the vertical optical flows side-by-side. 
+
+### Examples with different colormaps
+Spectral       |  gist_heat
+:-------------------:|:--------------------:
+![](Imgs/ex_sp1.jpg) | ![](Imgs/ex_gi2.jpg)
+
+coolwarm       |  jet
+:-------------------:|:--------------------:
+![](Imgs/ex_cw3.jpg) | ![](Imgs/ex_je4.jpg)
 
 # Contact
 
