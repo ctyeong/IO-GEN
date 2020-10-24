@@ -2,56 +2,39 @@
 
 *Inner Outlier Generator (IO-GEN)* is designed to tackle 
 One-class Classification (OC) problems by generating synthetic data 
-that has a particular geographic property on the feature space of 
+that has a useful geographic property on the feature space of 
 Deep Support Vector Data Description (DSVDD). 
 This repo provides the official Tensorflow implementations of IO-GEN, which was first proposed in the paper: 
 
 **"Identification of Abnormal States in Videos of Ants Undergoing Social Phase Change", under review for [IAAI-21](https://aaai.org/Conferences/AAAI-21/iaai-21-call/), (arXiv: https://arxiv.org/abs/2009.08626)**
 
-![scenario](Imgs/scenario.jpg)
+<img src=Imgs/scenario.jpg width="85%">
 
 Although theoretically, IO-GEN is applicable to any type of 
-OC problems, here we focus on the exemplar scenario in the 
-above paper, where the classifier is trained only with observation samples from *stable* colony but has to distinguish *unstable* samples.
+OC problems, here we focus on the exemplar scenario discussed in the above paper, where the classifier is trained only with observational samples from *stable* colony but has to distinguish *unstable* samples.
 Instructions below start with a quick introduction to the pipeline of involved networks during training and test, followed by technical manuals to reproduce similar results to the paper. Ant video data are also available at https://github.com/ctyeong/OpticalFlows_HsAnts.
 
+# Contents 
 
-# IO-GEN + DSVDD + Classifier
-To better understand the code, we first review the pipeline of network model for training and test. 
+1. [Model Pipeline]()
+
+# Model Pipeline
+To better understand the code, we first review the pipeline of network model and data flows during training and test. 
 
 ## Training Steps
 
 1. Deep Convolutional Autoencoder (DCAE) is trained. 
-2. Encoder of DCAE is fine-tuned as DSVDD.
-3. IO-GEN is trained in an adversarial manner also using the feature space of DSVDD, which is frozen this time. 
-   <img src=Imgs/pipeline1.jpg width="70%">
+2. Encoder part of DCAE is fine-tuned as DSVDD.
+3. IO-GEN is trained in an adversarial manner involving the feature space of DSVDD, which is frozen this time. 
+   
+   <img src=Imgs/pipeline1.jpg width="65%">
 4. Classifier is trained on top of frozen (IO-GEN, DSVDD).
-   <img src=Imgs/pipeline2.jpg width="70%">
+
+   <img src=Imgs/pipeline2.jpg width="65%">
 
 ## Structure for Test
 
-(DSVDD, CLS) are only components used after training to classify input optical flows as either stable or unstable. 
-
-
-# Building on DSVDD
-
-![](Imgs/feature_space.jpg | width=400)
-
-# Introduction
-
-Codes used for 
-"Identification of Abnormal States in Videos of Ants Undergoing Social Phase Change",
-Taeyeong Choi, Benjamin Pyenson, Juergen Liebig, and Theodore P. Pavlic, 
-*Under review for [IAAI-21](https://aaai.org/Conferences/AAAI-21/iaai-21-call/)*
-.
-
-This repository contains the codes to build, train, and test the following models utilized in our paper
-to reproduce similar results.
-
- can be built, trained, and tested for One-class Classification problems: 
-- Deep Convolutional Autoencoder (DCAE)
-- Deep Support Vector Data Description (DSVDD)
-- IO-GEN (with Classifier) 
+(DSVDD, CLS) are the only components used after training to classify input optical flows as either stable or unstable. 
 
 # Requirements
 We have tested the code with the following Python packages without issues:
