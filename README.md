@@ -4,12 +4,16 @@
 One-class Classification (OC) problems by generating synthetic data 
 that has a particular geographic property on the feature space of 
 Deep Support Vector Data Description (DSVDD). 
-This repository provides a quick introduction to the IO-GEN model as 
-well as to the official Tensorflow implementations of the paper: 
+This repo provides the official Tensorflow implementations of IO-GEN, which was first proposed in the paper: 
 
-**"Identification of Abnormal States in Videos of Ants Undergoing Social Phase Change", under review for [IAAI-21](https://aaai.org/Conferences/AAAI-21/iaai-21-call/).**
+**"Identification of Abnormal States in Videos of Ants Undergoing Social Phase Change", under review for [IAAI-21](https://aaai.org/Conferences/AAAI-21/iaai-21-call/), (arXiv: https://arxiv.org/abs/2009.08626)**
 
-Pre-print version at arXiv : https://arxiv.org/abs/2009.08626
+Although theoretically, IO-GEN is applicable to any type of 
+OC problems, here we focus on the exemplar scenario with 
+ant videos proposed in the above paper. 
+Following instructions start with a quick introduction to the 
+problem setting and the concept of the IO-GEN approach, and 
+then more technical manuals are described to reproduce similar results to the paper. Ant video data are also available at https://github.com/ctyeong/OpticalFlows_HsAnts.
 
 # Macrostate Classification in Ant Colony
 
