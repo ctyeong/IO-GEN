@@ -37,26 +37,34 @@ To better understand the code, we first review the pipeline of network model and
 
 (DSVDD, CLS) are the only components used after training to classify input optical flows as either stable or unstable. 
 
-# SW/HW/Data Requirements
+<!-- # SW/HW/Data Requirements
 All codes here have been run with the following Python packages without issues:
-- Python v3.6.9
+- Python v3.6
 - Tensorflow v2.1.0
 - PIL v7.2.0
 - Pandas v1.0.5
 
 on a single NVIDIA TITAN XP graphics card (12GB) with the installation of NVIDIA Driver v440.100 (CUDA v10.2).
-Moreover, users are encouraged to utilize optical flow data of ants at the following repo: https://github.com/ctyeong/OpticalFlows_HsAnts.
+Moreover, users are encouraged to utilize optical flow data of ants at the following repo: https://github.com/ctyeong/OpticalFlows_HsAnts. -->
 
-# Usage 
-
-## Installation 
+# Installation 
 
 1. Clone the repository 
    
    `git clone https://github.com/ctyeong/IO-GEN.git`
 
-2. Install the dependencies
+2. Install the required Python packages
 
+    `pip install -r requirements.txt`
+
+    - Python 3.6 is assumed to be installed already
+
+3. Download ant motional data
+   
+   `cd IO-GEN`
+   `git clone https://github.com/ctyeong/OpticalFlows_HsAnts.git`
+   `cp `
+   
 
 
 The following instruction assumes the input optical flows and at least one of the suggested splits have been downloaded from ["OpticalFlows_HsAnts"](https://github.com/ctyeong/OpticalFlows_HsAnts). That is, under the current directory, there are three folders such as:
