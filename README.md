@@ -16,7 +16,8 @@ Instructions below start with a quick introduction to the pipeline of involved n
 
 # Contents 
 
-1. [Model Pipeline]()
+1. [Model Pipeline](https://github.com/ctyeong/IO-GEN#model-pipeline)
+2. [SW/HW/Data Requirements](https://github.com/ctyeong/IO-GEN#model-pipeline)
 
 # Model Pipeline
 To better understand the code, we first review the pipeline of network model and data flows during training and test. 
@@ -36,14 +37,16 @@ To better understand the code, we first review the pipeline of network model and
 
 (DSVDD, CLS) are the only components used after training to classify input optical flows as either stable or unstable. 
 
-# Requirements
-We have tested the code with the following Python packages without issues:
+# SW/HW/Data Requirements
+All codes here have been run with the following Python packages without issues:
 - Python v3.6.9
 - Tensorflow v2.1.0
 - PIL v7.2.0
 - Pandas v1.0.5
 
-on a NVIDIA TITAN XP graphics card (12GB) with the installation of NVIDIA Driver v440.100 (CUDA v10.2)
+on a single NVIDIA TITAN XP graphics card (12GB) with the installation of NVIDIA Driver v440.100 (CUDA v10.2)
+
+Moreover, users are encouraged to download optical flow data at the following repo: https://github.com/ctyeong/OpticalFlows_HsAnts.
 
 # Usage 
 
