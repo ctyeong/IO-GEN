@@ -12,12 +12,12 @@ This repo provides the official Tensorflow implementations of IO-GEN, which was 
 
 Although theoretically, IO-GEN is applicable to any type of 
 OC problems, here we focus on the exemplar scenario discussed in the above paper, where the classifier is trained only with observational samples from *stable* colony but has to distinguish *unstable* samples.
-Instructions below start with a quick introduction to the pipeline of involved networks during training and test, followed by technical manuals to reproduce similar results to the paper. Ant video data are also available at https://github.com/ctyeong/OpticalFlows_HsAnts.
+Instructions below start with a quick introduction to the pipeline of involved networks during training and test, followed by technical manuals to reproduce similar results to the paper. Ant motional data are also available at https://github.com/ctyeong/OpticalFlows_HsAnts.
 
 # Contents 
 
 1. [Model Pipeline](https://github.com/ctyeong/IO-GEN#model-pipeline)
-2. [SW/HW/Data Requirements](https://github.com/ctyeong/IO-GEN#model-pipeline)
+2. [SW/HW/Data Requirements](https://github.com/ctyeong/IO-GEN#swhwdata-requirements)
 
 # Model Pipeline
 To better understand the code, we first review the pipeline of network model and data flows during training and test. 
@@ -44,11 +44,20 @@ All codes here have been run with the following Python packages without issues:
 - PIL v7.2.0
 - Pandas v1.0.5
 
-on a single NVIDIA TITAN XP graphics card (12GB) with the installation of NVIDIA Driver v440.100 (CUDA v10.2)
-
-Moreover, users are encouraged to download optical flow data at the following repo: https://github.com/ctyeong/OpticalFlows_HsAnts.
+on a single NVIDIA TITAN XP graphics card (12GB) with the installation of NVIDIA Driver v440.100 (CUDA v10.2).
+Moreover, users are encouraged to utilize optical flow data of ants at the following repo: https://github.com/ctyeong/OpticalFlows_HsAnts.
 
 # Usage 
+
+## Installation 
+
+1. Clone the repository 
+   
+   `git clone https://github.com/ctyeong/IO-GEN.git`
+
+2. Install the dependencies
+
+
 
 The following instruction assumes the input optical flows and at least one of the suggested splits have been downloaded from ["OpticalFlows_HsAnts"](https://github.com/ctyeong/OpticalFlows_HsAnts). That is, under the current directory, there are three folders such as:
 
