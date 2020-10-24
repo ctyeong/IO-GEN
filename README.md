@@ -68,9 +68,7 @@ Moreover, users are encouraged to utilize optical flow data of ants at the follo
    rm -rf OpticalFlows_HsAnts
    ```
    
-
-
-The following instruction assumes the input optical flows and at least one of the suggested splits have been downloaded from ["OpticalFlows_HsAnts"](https://github.com/ctyeong/OpticalFlows_HsAnts). That is, under the current directory, there are three folders such as:
+<!-- The following instruction assumes the input optical flows and at least one of the suggested splits have been downloaded from ["OpticalFlows_HsAnts"](https://github.com/ctyeong/OpticalFlows_HsAnts). That is, under the current directory, there are three folders such as:
 
 `./Stable` 
 
@@ -78,28 +76,33 @@ The following instruction assumes the input optical flows and at least one of th
 
 `./split1` 
 
-For custom data, if the data hierarchy and a similar split format are given, the code here will require only few modifications.
+For custom data, if the data hierarchy and a similar split format are given, the code here will require only few modifications. -->
 
-## Training 
-*train.py* is a *python* script to train *DCAE, DSVDD,* and *IO-GEN (followed by Classifier)* in order. Each model is evaluated per epoch, and it is saved into a specified directory as the best performance has been achieved during epochs. (The numbers of epochs are set to 750, 160, 20K, and 40, respectively as done in the paper above.)
+# Training 
 
-Here is an example to run *train.py* with *split1* in the current directory.
+*train.py* is the python script to train *DCAE, DSVDD,* and *IO-GEN (followed by Classifier)* in order. Each model is evaluated per epoch, and it is saved into a specified directory as the best performance has been achieved during epochs. (The numbers of epochs are set to 750, 160, 20K, and 40, respectively as done in the paper above.)
 
-`$ python train.py -s ./split1`
+### With a particular data split 
+Here is an example for training with *split1* in the current directory.
+```
+python train.py -s ./split1
+```
 
-*'-s'* argument must be provided although all other arguments can be ignored just to run with default values.
+*'-s'* argument must be provided although all other arguments, explained below, can be ignored just to run with default values.
 
-The number of x,y optical flow pairs per input can be specified by *'-m'*: 
+### Specifying the number of optical flow pairs per input
+The number of x,y optical flow pairs per input can be specified by *'-m'* (default=2): 
+```
+python train.py -s ./split1 -m 1
+```
 
-`$ python train.py -s ./split1 -m 1`
+### Saving best models and training logs
+The directories to store best trained models and [Tensorboard](https://www.tensorflow.org/tensorboard) logs can also be specified:
+```
+python train.py -s ./split1 -d ./saved_models -t ./tb_logs
+```
 
-This prepares the data and models to only use one optical flow observation per sample (default=2).
-
-The directories to store trained models and Tensorboard logs can also be specified:
-
-`$python train.py -s ./split1 -d ./saved_models -t ./tb_logs`
-
-The default directories are *./saved_models* and *./tb_logs*, respectively. Best models are named with *DCAE.h5, DSVDD.h5, IO-GEN.h5,* and *Classifier.h5* under the directory.
+Without specification, the default directories are automatically set to *./saved_models* and *./tb_logs*, respectively. The best models are saved with names like *DCAE.h5, DSVDD.h5, IO-GEN.h5,* and *Classifier.h5* under the corresponding directory.
 
 Lastly, *'-v'* can be set either *1* or *0* to control the level of explanation during training (default=1). 
 
