@@ -8,16 +8,29 @@ This repo provides the official Tensorflow implementations of IO-GEN, which was 
 
 **"Identification of Abnormal States in Videos of Ants Undergoing Social Phase Change", under review for [IAAI-21](https://aaai.org/Conferences/AAAI-21/iaai-21-call/), (arXiv: https://arxiv.org/abs/2009.08626)**
 
+![scenario](Imgs/scenario.jpg)
+
 Although theoretically, IO-GEN is applicable to any type of 
-OC problems, here we focus on the exemplar scenario with 
-ant videos proposed in the above paper. 
-Following instructions start with a quick introduction to the 
-problem setting and the concept of the IO-GEN approach, and 
-then more technical manuals are described to reproduce similar results to the paper. Ant video data are also available at https://github.com/ctyeong/OpticalFlows_HsAnts.
+OC problems, here we focus on the exemplar scenario in the 
+above paper, where the classifier is trained only with observation samples from *stable* colony but has to distinguish *unstable* samples.
+Instructions below start with a quick introduction to the pipeline of involved networks during training and test, followed by technical manuals to reproduce similar results to the paper. Ant video data are also available at https://github.com/ctyeong/OpticalFlows_HsAnts.
 
-# Macrostate Classification in Ant Colony
 
-![](Imgs/Fig1_concept.jpg)
+# IO-GEN + DSVDD + Classifier
+To better understand the code, we first review the pipeline of network model for training and test. 
+
+## Training Steps
+
+1. Deep Convolutional Autoencoder (DCAE) is trained. 
+2. Encoder of DCAE is fine-tuned as DSVDD.
+3. IO-GEN is trained in an adversarial manner also using the feature space of DSVDD, which is frozen this time. 
+   ![pipeline](Imgs/pipeline1.jpg)
+4. Classifier is trained on top of frozen (IO-GEN, DSVDD).
+   ![pipeline](Imgs/pipeline2.jpg)
+
+## Structure for Test
+
+(DSVDD, CLS) are only components used after training to classify input optical flows as either stable or unstable. 
 
 
 # Building on DSVDD
