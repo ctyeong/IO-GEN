@@ -1,4 +1,4 @@
-# Inner-Outlier Generator 
+# Inner Outlier Generator 
 
 *Inner Outlier Generator (IO-GEN)* is designed to tackle 
 One-class Classification (OC) problems by generating synthetic data 
