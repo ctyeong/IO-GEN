@@ -165,7 +165,7 @@ coolwarm             |  jet
 
 # Contact
 
-If there is any question or suggestion, please do not hesitate to shoot an email to *tchoi4@asu.edu*. Thanks!
+If there is any question or suggestion, please do not hesitate to shoot an email to tchoi@lincoln.ac.uk. Thanks!
 
 
 
