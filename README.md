@@ -6,7 +6,7 @@ that has a useful geographic property on the feature space of
 Deep Support Vector Data Description (DSVDD). 
 This repo provides the official Tensorflow implementations of IO-GEN, which was first proposed in the paper: 
 
-**"Identification of Abnormal States in Videos of Ants Undergoing Social Phase Change", under review for [IAAI-21](https://aaai.org/Conferences/AAAI-21/iaai-21-call/), (arXiv: https://arxiv.org/abs/2009.08626)**
+**"Identification of Abnormal States in Videos of Ants Undergoing Social Phase Change", Accepted to [IAAI-21](https://aaai.org/Conferences/AAAI-21/iaai-21-call/), (Pre-print version: https://arxiv.org/abs/2009.08626)**
 
 <img src=Imgs/scenario.jpg width="85%">
 
