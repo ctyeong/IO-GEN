@@ -1,18 +1,12 @@
 # Inner Outlier Generator 
 
-*Inner Outlier Generator (IO-GEN)* is designed to tackle 
-One-class Classification (OC) problems by generating synthetic data 
-that has a useful geographic property on the feature space of 
-Deep Support Vector Data Description (DSVDD). 
-This repo provides the official Tensorflow implementations of IO-GEN, which was first proposed in the paper: 
+*Inner Outlier Generator (IO-GEN)* is designed to tackle One-class Classification (OC) problems by generating synthetic data that has a useful geographic property on the feature space of Deep Support Vector Data Description (DSVDD). This repo provides the official Tensorflow implementations of IO-GEN, which was first proposed in the paper: 
 
 **"Identification of Abnormal States in Videos of Ants Undergoing Social Phase Change", Accepted to [IAAI-21](https://aaai.org/Conferences/AAAI-21/iaai-21-call/), (Pre-print version: https://arxiv.org/abs/2009.08626)**
 
 <img src=Imgs/scenario.jpg width="85%">
 
-Although theoretically, IO-GEN is applicable to any type of 
-OC problems, here we focus on the exemplar scenario discussed in the above paper, where the classifier is trained only with observational samples from *stable* colony but has to distinguish *unstable* samples.
-Instructions below start with a quick introduction to the pipeline of involved networks during training and test, followed by technical manuals to reproduce similar results to the paper. Ant motional data are also available at https://github.com/ctyeong/OpticalFlows_HsAnts.
+Although theoretically, IO-GEN is applicable to any type of OC problems, here we focus on the exemplar scenario discussed in the above paper, where the classifier is trained only with observational samples from *stable* colony but has to distinguish *unstable* samples. Instructions below start with a quick introduction to the pipeline of involved networks during training and test, followed by technical manuals to reproduce similar results to the paper. Ant motional data are also available at https://github.com/ctyeong/OpticalFlows_HsAnts.
 
 # Contents 
 
@@ -22,6 +16,9 @@ Instructions below start with a quick introduction to the pipeline of involved n
 3. [Test](https://github.com/ctyeong/IO-GEN#test)
 4. [Benchmark Performance](https://github.com/ctyeong/IO-GEN#benchmark-performance)
 5. [Exporting Fake Ant Motions](https://github.com/ctyeong/IO-GEN#exporting-fake-ant-motions)
+6. [Citation](https://github.com/ctyeong/IO-GEN#citation)
+7. [Contact](https://github.com/ctyeong/IO-GEN#contact)
+
 
 # Model Pipeline
 To better understand the code, we first review the pipeline of network model and data flows during training and test. 
@@ -194,9 +191,22 @@ coolwarm             |  jet
 :-------------------:|:--------------------:
 ![](Imgs/ex_cw3.jpg) | ![](Imgs/ex_je4.jpg)
 
+# Citation
+
+If you use this code or reference IO-GEN for your research, please cite our paper:
+
+```
+@inproceedings{CPLP21,
+  title={Identification of Abnormal States in Videos of Ants Undergoing Social Phase Change},
+  author={Choi, Taeyeong and Pyenson, Benjamin and Liebig, Juergen and Pavlic, Theodore P},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  year={2021}
+}
+```
+
 # Contact
 
-If there is any question or suggestion, please do not hesitate to shoot an email to tchoi@lincoln.ac.uk. Thanks!
+If there is any question or suggestion, please do not hesitate to shoot an email to tchoi@lincoln.ac.uk, or DM to [@ssuty](https://twitter.com/ssuty) on Twitter! Thanks!
 
 
 
