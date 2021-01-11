@@ -20,7 +20,8 @@ Instructions below start with a quick introduction to the pipeline of involved n
 2. [Installation](https://github.com/ctyeong/IO-GEN#installation)
 3. [Training](https://github.com/ctyeong/IO-GEN#training)
 3. [Test](https://github.com/ctyeong/IO-GEN#test)
-4. [Exporting Fake Ant Motions](https://github.com/ctyeong/IO-GEN#exporting-fake-ant-motions)
+4. [Benchmark Performance](https://github.com/ctyeong/IO-GEN#benchmark-performance)
+5. [Exporting Fake Ant Motions](https://github.com/ctyeong/IO-GEN#exporting-fake-ant-motions)
 
 # Model Pipeline
 To better understand the code, we first review the pipeline of network model and data flows during training and test. 
@@ -136,6 +137,36 @@ All: .786
 
 Similar to the report protocol in the paper, the first six rows indicate AUC scores at unique time bins while the colony is stabilized. 
 In contrast, the last row is the performance measurement considering all samples from the entire observation period (D+1~D+18)
+
+# Benchmark Performance 
+
+Here are the AUC scores for IO-GEN and other baseline approaches reported in the IAAI-21 paper. Each score is the average over three unique splits with the standard deviation. More details are provided in the paper.
+
+### Overall Performance
+
+| METHOD | AUC          |
+| -------|:------------:|
+|  OFW   | .506         |
+|  DCAE  | .506 (.002)  | 
+| OC-SVM | .523 (.004)  | 
+| DSVDD  | .762 (.013)  | 
+| GEN    | .587 (.032)  | 
+| N-GEN | .699 (.006)   | 
+| **IO-GEN** | **.786 (.009)** | 
+
+### Temporal Performance
+
+Models were tested with test samples within unique time bins to see how they respond to dynamic ant behaviors over time during colonial stabilization. 
+
+| METHOD | D+1 | D+2 | D+3-D+6 | D+7-D+10 | D+11-D+14 | D+15-D+18 |
+| -------|:------------:|:------------:|:------------:|:------------:|:------------:|:------------:| 
+|  OFW   | .873 | .736 | .620 | .474 | .390 | .369 |
+|  DCAE   | .880 (.005) | .760 (.002) | .637 (.002) | .480 (.002) | .390 (.003) | .360 (.003) |
+|  DSVDD   | .916 (.004) | .886 (.008) | .861 (.011) | .759 (.016) | .677 (.014) | .680 (.016) |
+|  GEN   | .713 (.036) | .677 (.065) | .639 (.044) | .578 (.055) | .542 (.037) | .535 (.041) |
+|  N-GEN   | .835 (.091) | .847 (.062) | .819 (.030) | .739 (.023) | .596 (.020) | .588 (.031) |
+|  IO-GEN   | .933 (.027) | .943 (.014) | .909 (.014) | .792 (.013) | .688 (.017) | .678 (.022) |
+
 
 # Exporting Fake Ant Motions
 
