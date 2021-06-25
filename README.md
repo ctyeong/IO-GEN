@@ -2,7 +2,7 @@
 
 *Inner Outlier Generator (IO-GEN)* is designed to tackle One-class Classification (OC) problems by generating synthetic data that has a useful geographic property on the feature space of Deep Support Vector Data Description (DSVDD). This repo provides the official Tensorflow implementations of IO-GEN, which was first proposed in the paper: 
 
-**"Identification of Abnormal States in Videos of Ants Undergoing Social Phase Change", Accepted to [IAAI-21](https://aaai.org/Conferences/AAAI-21/iaai-21-call/), (Pre-print version: https://arxiv.org/abs/2009.08626)**
+**"Identification of Abnormal States in Videos of Ants Undergoing Social Phase Change", accepted to [IAAI-21](https://aaai.org/Conferences/AAAI-21/iaai-21-call/), (Published version: https://ojs.aaai.org/index.php/AAAI/article/view/17794)**
 
 <img src=Imgs/scenario.jpg width="85%">
 
